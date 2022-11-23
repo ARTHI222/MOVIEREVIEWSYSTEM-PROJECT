@@ -1,0 +1,42 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-dark">
+  <a class="navbar-brand" routerLink="home" style="color: black;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png" width="50" height="30"  class="d-inline-block align-top" alt="" >
+    &nbsp;&nbsp;&nbsp;<span style="color:white  ;">Movie Review System</span>
+  </a>
+  
+  <div class="container"> 
+    <a routerLink="home">
+      <button type="button" class="btn btn-light">Home</button></a>
+
+      <div *ngIf="!isLoggedIn">
+        <a routerLink="login">
+        <button type="button" class="btn btn-secondary">Login</button></a>
+  </div>
+
+      <a routerLink="register">
+        <button type="button" class="btn btn-success">Register</button></a>
+      
+        <a routerLink="admin">
+          <button type="button" class="btn btn-danger">Admin</button></a>
+        
+          <a routerLink="contactus">
+            <button type="button" class="btn btn-warning">Contact Us</button></a>
+          
+            <a routerLink="aboutus">
+              <button type="button" class="btn btn-info">About Us</button></a>
+
+
+           
+          
+               
+            </div>
+             
+               
+  
+    
+
+  
+  
+</nav>
+<router-outlet></router-outlet>

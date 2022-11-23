@@ -1,0 +1,184 @@
+<!--<tr *ngFor="let d of data"  style="color:white ;">
+                
+    <td ><img src="{{d.url}}" alt="{{d.tittle}}" height="200" width="100" ></td>
+    <td>{{d.title}}</td>
+    <td>{{d.description}}</td>
+    <td>{{d.rating}}</td>
+    
+   
+</tr>-->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.txt-center {
+            text-align: center;
+        }
+        .hide {
+            display: none;
+        }
+        
+        .clear {
+            float: none;
+            clear: both;
+        }
+        
+        .rating {
+            height: 50px;
+            width: 90px;
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            text-align: center;
+            position: relative;
+        }
+        
+        .rating > label {
+            float: right;
+            display: inline;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            width: 1.1em;
+            cursor: pointer;
+            color: #000;
+        }
+        
+        .rating > label:hover,
+        .rating > label:hover ~ label,
+        .rating > input.radio-btn:checked ~ label {
+            color: transparent;
+        }
+        
+        .rating > label:hover:before,
+        .rating > label:hover ~ label:before,
+        .rating > input.radio-btn:checked ~ label:before,
+        .rating > input.radio-btn:checked ~ label:before {
+            content: "\2605";
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+        }
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  font-family: arial;
+  border: 1px solid lightgray;
+    border-radius: 16px;
+    width: 340px;
+    padding: 10px;
+    margin: 35px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  position: relative;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+.card button:hover {
+  opacity: 0.7;
+}
+.card-img{
+    width: 100%;
+    border-radius: 16px;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+</style>
+</head>
+<body class="flex" style="background-color:white ;">
+
+<div class="card" *ngFor="let d of data" >
+    <img src="{{d.url}}" alt="{{d.title}}" style="width:100%" >
+  <h1>{{d.title}}</h1>
+  <p >{{d.description}}</p>
+  <p>{{d.rating}}/5</p>
+  <p><button (click)="edit(d.id)" data-toggle="modal" data-target="#exampleModal">Update Review</button></p>
+  <button (click)="deletebyid(d.id)">Delete</button>
+  
+</div>
+</body>
+</html>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Movie Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        
+          <div class="container">
+            
+                        <form #m="ngForm" (ngSubmit)="updatemoviedetails(m.value)">
+            
+                          <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Fill All The Details</h5>
+        
+                          <div class="form-outline mb-8">
+                            <label class="form-label" for="form2Example17">Tittle</label>
+                            <input type="text"  id="form2Example17" class="form-control form-control-lg"  name="title"ngModel required/>
+                            
+                          </div>
+        
+                          <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example17">Description</label>
+                            <input type="text" id="form2Example17" class="form-control form-control-lg"  name="description" ngModel required/>
+                          </div>
+                          <label class="form-label" for="form2Example17" style="text-align:center ;">Rating</label>
+                          <div class="rating">
+                            
+                            <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" name="rating" ngModel/>
+                            <label for="star5">☆</label>
+                            <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" name="rating" ngModel />
+                            <label for="star4">☆</label>
+                            <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" name="rating" ngModel />
+                            <label for="star3">☆</label>
+                            <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" name="rating" ngModel />
+                            <label for="star2">☆</label>
+                            <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" name="rating" ngModel/>
+                            <label for="star1">☆</label>
+                            <div class="clear"></div>
+                        </div>
+        
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example17">Add Movie Image url</label>
+                            <input type="text" id="form2Example17" class="form-control form-control-lg"  name="url" ngModel required/>
+        
+                          </div>
+                          
+                          <div class="pt-1 mb-4">
+                            <button class="btn btn-dark btn-lg btn-block">Update</button>
+                          </div>
+                           
+                            
+        
+                         
+                         <div><h4 style="text-align: center;">{{updatedisplay}}</h4></div>
+                          
+                        </form>
+      </div>
+      
+    
+  </div>
+</div>

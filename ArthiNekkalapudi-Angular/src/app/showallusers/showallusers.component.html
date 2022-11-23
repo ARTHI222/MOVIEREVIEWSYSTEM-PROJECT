@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="container">
+        <div class="row col-mid-6 col-mid-offset-2 custyle">
+        <table class="table table-striped custab" >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User Email id</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody style="background:rgb(61, 0, 61)">
+            <tr *ngFor="let d of data"  style="color:white ;">
+                <td><span>{{d.id}}</span></td>
+                
+                <td>{{d.email}}</td>
+                <td><button (click)="deleteuserbyid(d.id)" class="btn btn-warning" style="color:white ;">Remove User</button></td>
+            </tr>
+        </tbody>
+        </table>
+       
+        </div>
+        
+    </div>
+    </div>

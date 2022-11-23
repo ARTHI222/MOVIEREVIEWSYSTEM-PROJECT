@@ -1,0 +1,108 @@
+<html lang="en" dir="ltr">
+
+  <head>
+    <style>
+    
+        *{
+  margin: 0;
+  padding: 0;
+  
+}
+.view{
+ 
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  background: black;
+  padding: 0 05px;
+}
+.container{
+  max-width: 3000px;
+  width: 100%;
+  height: 500px;
+  border: 0px solid black;
+  
+  overflow: hidden;
+}
+.image-box{
+  display: flex;
+  height: 100%;
+  width: 400%;
+  justify-content: space-between;
+}
+.image-box{
+  animation: imgBox 30s linear infinite;
+}
+@keyframes imgBox{
+  0%{
+    margin-left: 0;
+  }
+  100%{
+    margin-left: -300%;
+  }
+}
+.image-box:hover{
+  animation-play-state: paused;
+}
+.image-box .image{
+  width: calc(100% - 4200px);
+  height: 100%;
+}
+.image-box img{
+  height: 200%;
+  width: 100%;
+  object-fit: cover;
+}
+
+    </style>
+    
+   </head>
+
+<body>
+  <div *ngIf="isLoggedIn">
+    <h1>Welcome back,{{email}}</h1>
+   </div>
+
+    <div class="view">
+    
+  <div class="container" >
+    <div class="image-box">
+        <div class="image">
+         <img class="img1" src="https://wallpaper.dog/large/5498275.jpg " alt="image1">
+        </div>
+        <div class="image">
+          <img class="img2" src=" https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/marvels_spider_man_header.jpg" alt="image2">
+        </div>
+        <div class="image">
+          <img class="img3" src="https://www.theyoungfolks.com/wp-content/uploads/2016/07/maxresdefault-3.jpg" alt="image3">
+        </div>
+        <div class="image">
+          <img class="img4" src="https://wallpaper.dog/large/5498267.jpg   " alt="image4">
+        </div>
+      </div>
+   </div>
+  </div>
+  <div>
+<div  style="color:burlywood; background-color:black ; text-align: center;" class="p-0 mb-0 bg-black text-dark">
+  <span><h1> &nbsp;B E S T &nbsp;M O V I E &nbsp;R E V I E W S&nbsp;&nbsp;F O R&nbsp;&nbsp;Y O U </h1></span>
+
+  <span style="right:0px;position:absolute">
+  <button (click)="logout()"class="btn btn-outline-primary">LOGOUT</button>
+</span>
+</div>
+<!-- <br/> -->
+<!-- <div style="float:right; background-color: black;" > -->
+<!-- </div> -->
+<!-- <br/> -->
+</div>
+
+
+
+
+</body>
+</html>
+<app-homechild></app-homechild>
+
+
+
+
